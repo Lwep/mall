@@ -2,27 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>admin-service</module>
-        <module>goods-service</module>
-		<module>order-service</module>
-    </modules>
 	<parent>
 		<artifactId>mall</artifactId>
 		<groupId>com.leqi</groupId>
 		<version>1.0.0</version>
 	</parent>
 	<groupId>com.leqi</groupId>
-	<artifactId>service</artifactId>
+	<artifactId>order-service</artifactId>
 	<version>1.0.0</version>
-	<name>service</name>
-	<description>业务服务模块</description>
+	<name>order-service</name>
+	<description>订单服务模块</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies></dependencies>
+	<dependencies>
+
+	</dependencies>
 
 	<build>
 		<plugins>
