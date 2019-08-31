@@ -8,9 +8,10 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>com.leqi</groupId>
     <artifactId>common</artifactId>
-
+    <version>1.0.0</version>
+    
     <name>common</name>
     <description>公共服务模块</description>
 
@@ -22,6 +23,12 @@
     </properties>
 
     <dependencies>
+        <!--mybatis-plus 插件-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

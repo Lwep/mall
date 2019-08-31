@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.leqi</groupId>
 	<artifactId>user-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>user-service</name>
 	<description>用户服务中心</description>
 
@@ -18,7 +18,10 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-context</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
