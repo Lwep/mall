@@ -1,4 +1,4 @@
-package com.leqi.user;
+package com.leqi.user.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

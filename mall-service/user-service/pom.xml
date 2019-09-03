@@ -11,17 +11,14 @@
 	<artifactId>user-service</artifactId>
 	<version>1.0.0</version>
 	<name>user-service</name>
-	<description>用户服务中心</description>
+	<description>用户服务模块</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-context</artifactId>
-		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -31,6 +28,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+
 	</build>
 
 </project>

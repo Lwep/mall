@@ -1,15 +1,13 @@
 package com.leqi.admin.service.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.leqi.admin.service.entity.Admin;
-
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author lwep
- * @dareTime 2019/8/31 9:29
+ * @dareTime 2019/9/3 16:35
  */
 @Mapper
-public interface AdminMapper extends BaseMapper<Admin> {
+public interface AdminMapper {
     int insertAdmin(Admin admin);
 }
