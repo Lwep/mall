@@ -21,8 +21,7 @@ public class AdminMapperTest extends AdminServiceApplicationTests {
     @Test
     public void insertAdmin() {
         Admin admin = new Admin();
-        admin.setAdmin_id(787L);
-        admin.setAdmin_username("adad");
-        adminMapper.insertAdmin(admin);
+       admin.setUsername("ad,om");
+       adminMapper.insert(admin);
     }
 }

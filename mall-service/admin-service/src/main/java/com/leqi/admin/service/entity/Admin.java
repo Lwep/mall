@@ -1,5 +1,6 @@
 package com.leqi.admin.service.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -9,14 +10,18 @@ import java.time.LocalDate;
  * @dareTime 2019/9/3 16:33
  */
 @Data
+@TableName("mall_admin")
 public class Admin {
-    private Long admin_id;
-    private String admin_username;
-    private String admin_password;
-    private String admin_realname;
-    private String admin_phone;
-    private int admin_status;
-    private LocalDate admin_create_time;
-    private LocalDate admin_login_time;
+    @TableId(value = "id",type = IdType.ID_WORKER)
+    private Long id;
+    private String username;
+    private String password;
+    private String realname;
+    private String phone;
+    private int status;
+    @TableField (value = "login_time")
+    private LocalDate create_time;
+    @TableField (value = "login_time")
+    private LocalDate login_time;
 
 }
