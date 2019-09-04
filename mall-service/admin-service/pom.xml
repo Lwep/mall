@@ -18,7 +18,16 @@
 	</properties>
 
 	<dependencies>
-
+		<!--本地依赖-->
+		<dependency>
+			<groupId>com.leqi</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

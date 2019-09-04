@@ -3,6 +3,7 @@ package com.leqi.admin.service.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.leqi.admin.service.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

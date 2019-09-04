@@ -4,9 +4,13 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.leqi.common.utils.LongJsonDeserializer;
+import com.leqi.common.utils.LongJsonSerializer;
 import lombok.Data;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author lwep
@@ -15,9 +19,19 @@ import java.time.LocalDate;
 @Data
 public class BaseEntity {
     @TableId(value = "id", type = IdType.ID_WORKER)
+    @JsonSerialize(using = LongJsonSerializer.class)
+    @JsonDeserialize(using = LongJsonDeserializer.class)
     private Long id;
+
     @TableField(value = "create_time", fill = FieldFill.INSERT)
-    private LocalDate createTime;
-    @TableField(value = "update_time", fill = FieldFill.UPDATE)
-    private LocalDate updateTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
+
+    @TableField(value = "login_time", fill = FieldFill.UPDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime loginTime;
+//    /**
+//     * 逻辑删除
+//     */
+//    private Integer deleted=0;
 }
