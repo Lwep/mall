@@ -12,15 +12,18 @@
             <el-input placeholder="请输入密码" v-model="loginForm.password" show-password style="width:80%">
             </el-input>
           </el-form>
+           <br>
+           <el-form ref="form" :model="loginForm" class="text">
+            <el-input placeholder="验证码" v-model="loginForm.authcode" show-password style="width:80%">
+            </el-input>
+          </el-form>
           <br>
-           
-              <el-button type="primary" style="width:80%">登录</el-button>
-
+              <el-button type="primary" style="width:80%" @click="loginIn">登录</el-button>
         </el-col>
       </el-row>
     </el-main>
   </div>
-</template>
+</template> 
 <script>
 export default {
   data() {
@@ -29,19 +32,11 @@ export default {
         account: "",
         password: ""
       }
-    };
+    }
   },
-
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          alert("submit!");
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    loginIn(){
+      this.$router.push('/layout');
     }
   }
 };
