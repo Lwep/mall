@@ -19,6 +19,6 @@ public class AuthController {
                 &&loginRequest.getPassword().equals("23")){
             return Result.ok("登录成功");
         }
-        return Result.fail("d登录失败");
+        return Result.fail("登录失败");
     }
 }

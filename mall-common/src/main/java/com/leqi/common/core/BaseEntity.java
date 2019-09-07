@@ -27,11 +27,12 @@ public class BaseEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 
-    @TableField(value = "login_time", fill = FieldFill.UPDATE)
+    @TableField(value = "update_time", fill = FieldFill.UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime loginTime;
-//    /**
-//     * 逻辑删除
-//     */
-//    private Integer deleted=0;
+    private LocalDateTime updateTime;
+
+    /**
+     * 逻辑删除
+     */
+    private Integer deleted=0;
 }
