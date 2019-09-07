@@ -1,6 +1,15 @@
 <template>
   <el-container>
-    <el-header style="background-color:#80CBC4">Header</el-header>
+    <el-header style="background-color:#80CBC4 ">
+      <el-container>
+        <el-aside width="200px" >
+          <h3>首页</h3>
+          </el-aside>
+        <el-main>
+          <h3>MALL管理系统</h3>
+        </el-main>
+      </el-container>
+    </el-header>
     <el-container>
       <el-aside width="200px" style="background-color:#A5D6A7">
         <Aside />
@@ -12,9 +21,10 @@
 
 <script>
 // 导入组件
-import Aside from "../layout/Aside.vue";
+import Aside from "../layout/Aside";
+
 export default {
-  name: "Aside",
+  name: "layout",
   components: {
     Aside
   }
@@ -22,4 +32,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-header{
+  padding: 0;
+}
+.el-main{
+  padding: 0;
+}
 </style>
