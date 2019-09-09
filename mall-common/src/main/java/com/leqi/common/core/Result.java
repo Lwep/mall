@@ -36,6 +36,10 @@ public class Result<T> {
     }
 
     public static Result ok(Object data) {
-        return new Result("0000", "success", data);
+        return new Result("0000", "message", data);
+    }
+
+    public static Result ok(String message, Object data) {
+        return new Result("0000", "message", data);
     }
 }

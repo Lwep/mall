@@ -9,7 +9,9 @@ const service = axios.create({
 
   // request拦截器
 service.interceptors.request.use(config => {
-    console.log("请求拦截");
+    if(config.url.indexOf('/login')==-1){
+      config.headers["admin_token"] = window.token;
+    }
     return config
   }, error => {
     return Promise.reject(error);

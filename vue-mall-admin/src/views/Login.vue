@@ -58,6 +58,8 @@ export default {
     login() {
       login(this.form).then(response => {
         if (response.data.code == "0000") {
+          //令牌储存
+          window.token = response.data.data;
           this.$router.push("/layout");
         } else {
           alert(response.data.message);
