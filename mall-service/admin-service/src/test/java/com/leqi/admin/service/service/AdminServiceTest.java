@@ -21,6 +21,14 @@ public class AdminServiceTest extends AdminServiceApplicationTests {
     private AdminService adminService;
 
     @Test
+    public void save(){
+        Admin admin = new Admin();
+        admin.setUsername("QQQ");
+        admin.setPassword("123456");
+        adminService.add(admin);
+    }
+
+    @Test
     public void getList() {
         List<Admin> adminList = adminService.getList();
         log.info(JSONArray.toJSONString(adminList));

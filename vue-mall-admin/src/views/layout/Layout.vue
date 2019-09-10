@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="background-color:#80CBC4 ">
+    <el-header style="background-color:#B2EBF2 ">
       <el-container>
         <el-aside width="200px" >
           <h3>首页</h3>
@@ -14,7 +14,9 @@
       <el-aside width="200px" style="background-color:#A5D6A7">
         <Aside />
       </el-aside>
-      <el-main style="background-color:#C5E1A5">Main</el-main>
+      <el-main style="background-color:#C5E1A5">
+        <router-view/>
+      </el-main>
     </el-container>
   </el-container>
 </template>

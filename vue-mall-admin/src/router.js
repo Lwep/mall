@@ -17,12 +17,19 @@ const router = new Router({
     {
       path: '/layout',
       name: 'layout',
-      component: () => import('@/views/layout/Layout.vue')
-    }
+      component: () => import('@/views/layout/Layout.vue'),
+      children: [
+        { path: 'order', name: 'roorderle', component: () => import('@/views/order/Order.vue'), },
+        { path: 'goods', name: 'goods', component: () => import('@/views/goods/Goods.vue'), },
+        { path: 'admin', name: 'admin', component: () => import('@/views/admin/Admin.vue'), },
+        { path: 'user', name: 'user', component: () => import('@/views/user/User.vue'), },
+      ]
+    },
+
   ]
 })
-router.beforeEach((to,from,next) => {
-  if(window.token) {
+router.beforeEach((to, from, next) => {
+  if (window.token) {
     next();
   } else {
     console.log("认证是否成功")
