@@ -47,7 +47,6 @@ export default {
     navGoods(){
      this.$router.push("/layout/goods");
     },
-   
   }
 };
 </script>

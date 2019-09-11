@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/goods/sku")
 public class SkuController {
-    @Autowired
-    private SkuService skuService;
+//    @Autowired
+//    private SkuService skuService;
 }
