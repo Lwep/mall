@@ -19,30 +19,30 @@ import java.io.PrintWriter;
 @Slf4j
 @Configuration
 public class AuthInterceptor implements HandlerInterceptor {
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        response.setContentType("text/html;charset=UTF-8");
-        response.setCharacterEncoding("utf8");
-
-        log.info(request.getHeader("admin_token"));
-        if (request.getRequestURI().contains("login")) {
-            return true;
-        }
-        HttpSession httpSession = request.getSession();
-        Object token = httpSession.getAttribute("token");
-        if (null != token && request.getHeader("admin_token").equals(token.toString())) {
-            return true;
-        }
-        Result result = Result.fail("没有认证");
-        PrintWriter printWriter = null;
-        try {
-            printWriter = response.getWriter();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        printWriter.write(JSON.toJSONString(result));
-        return false;
-
-
-    }
+//    @Override
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+//        response.setContentType("text/html;charset=UTF-8");
+//        response.setCharacterEncoding("utf8");
+//
+//        log.info(request.getHeader("admin_token"));
+//        if (request.getRequestURI().contains("login")) {
+//            return true;
+//        }
+//        HttpSession httpSession = request.getSession();
+//        Object token = httpSession.getAttribute("token");
+//        if (null != token && request.getHeader("admin_token").equals(token.toString())) {
+//            return true;
+//        }
+//        Result result = Result.fail("没有认证");
+//        PrintWriter printWriter = null;
+//        try {
+//            printWriter = response.getWriter();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        printWriter.write(JSON.toJSONString(result));
+//        return false;
+//
+//
+//    }
 }

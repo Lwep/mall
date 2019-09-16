@@ -28,7 +28,7 @@ public class RoleServiceTest  extends AdminServiceApplicationTests {
         Role role = new Role();
         role.setRolename("超级aa");
         UpdateWrapper<Role> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("id",1170243078074777601L);
+        updateWrapper.eq("id",1173433757881954305L);
         roleService.update(role,updateWrapper);
     }
     @Test

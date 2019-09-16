@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+
 public class AuthController {
 
     @PostMapping("login")

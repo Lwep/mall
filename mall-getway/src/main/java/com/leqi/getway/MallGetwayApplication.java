@@ -1,4 +1,4 @@
-package com.leqi.mallgetway;
+package com.leqi.getway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -8,6 +8,6 @@ import lombok.Data;
  */
 @Data
 public class PageRequest {
-    private  Integer pageSize;
-    private  Integer currentPage;
+    private  Integer current;
+    private  Integer size;
 }

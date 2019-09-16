@@ -1,5 +1,6 @@
 package com.leqi.admin.service.request;
 
+import com.leqi.common.core.PageRequest;
 import lombok.Data;
 
 /**
@@ -7,5 +8,5 @@ import lombok.Data;
  * @dareTime 2019/9/7 17:16
  */
 @Data
-public class RoleRequest {
+public class RoleRequest extends PageRequest {
 }
