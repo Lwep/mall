@@ -1,6 +1,6 @@
 package com.leqi.goods.service.service;
 
-import com.leqi.goods.service.entity.Goods;
+import com.leqi.goods.service.entity.SecCatagory;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author lwep
- * @since 2019-09-11
+ * @since 2019-09-17
  */
-public interface GoodsService extends IService<Goods> {
+public interface SecCatagoryService extends IService<SecCatagory> {
 
 }

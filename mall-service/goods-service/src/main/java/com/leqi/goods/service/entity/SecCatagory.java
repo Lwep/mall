@@ -12,29 +12,19 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author lwep
- * @since 2019-09-11
+ * @since 2019-09-17
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("goods_goods")
-public class Goods extends BaseEntity {
+@TableName("goods_sec_catagory")
+public class SecCatagory extends BaseEntity {
 
-    private String goodsName;
+    private static final long serialVersionUID = 1L;
 
-    private String goodsImg;
+    private Long brandId;
 
-    private String goodsPrice;
-
-    private String goodsStock;
-
-    private Long catagoryId;
-
-    private Long secCatagoryId;
-
-    private Long goodsBrand;
-
-    private Integer goodsStatus;
+    private String secCatagoryName;
 
 
 

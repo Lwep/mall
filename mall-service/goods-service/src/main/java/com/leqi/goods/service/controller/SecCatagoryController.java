@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author lwep
- * @since 2019-09-11
+ * @since 2019-09-17
  */
 @RestController
-@RequestMapping("/goods/goods")
-public class GoodsController {
+@RequestMapping("/sec-catagory")
+public class SecCatagoryController {
 
 }

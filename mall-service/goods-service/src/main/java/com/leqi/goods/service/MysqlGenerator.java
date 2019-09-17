@@ -54,7 +54,7 @@ public class MysqlGenerator {
         log.info("项目路径：" + projectPath);
         // TODO 1.类路径与注释
         gc.setOutputDir(projectPath + "/mall-service/goods-service/src/main/java");
-        gc.setAuthor("侯建军");
+        gc.setAuthor("lwep");
         gc.setOpen(false);
         mpg.setGlobalConfig(gc);
 

@@ -4,7 +4,6 @@
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column prop="id" label="ID"></el-table-column>
       <el-table-column prop="username" label="登录名"></el-table-column>
-   
       <el-table-column prop="phone" label="电话"></el-table-column>
       <el-table-column prop="createTime" label="创建时间"></el-table-column>
       <el-table-column prop="uptateTime" label="更新时间"></el-table-column>
@@ -33,7 +32,7 @@ export default {
       data: [],
       total:0,
       current:1,
-      size:3
+      size:5
     };
   },
   created() {

@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author 侯建军
+ * @author lwep
  * @since 2019-09-11
  */
 @Data
@@ -21,5 +21,7 @@ import lombok.experimental.Accessors;
 public class Brand extends BaseEntity {
 
     private String brandName;
+
+    private Long catagoryId;
 
 }

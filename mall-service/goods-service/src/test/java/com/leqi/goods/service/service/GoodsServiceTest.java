@@ -21,10 +21,14 @@ public class GoodsServiceTest  extends GoodsServiceApplicationTests {
     @Test
     public void save(){
         Goods goods = new Goods();
-        goods.setGoodsName("P30");
-        goods.setGoodsStock("1200");
-        goods.setGoodsPrice("9999");
-        goods.setGoodsBrand(1171701352259182593L);
+        goods.setGoodsPrice("1333");
+        goods.setGoodsStock("12345");
+        goods.setGoodsName("iphone");
+        goods.setCatagoryId(1173849483256131586L);
+        goods.setGoodsBrand(1173850218496634881L);
+        goods.setSecCatagoryId(1173852165513494530L);
+        goods.setGoodsImg("adad");
+        goods.setGoodsStatus(1);
         goodsService.save(goods);
 
     }

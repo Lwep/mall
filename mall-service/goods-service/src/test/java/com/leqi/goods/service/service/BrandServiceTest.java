@@ -20,7 +20,8 @@ public class BrandServiceTest  extends GoodsServiceApplicationTests {
     @Test
     public void save(){
         Brand brand = new Brand();
-        brand.setBrandName("MI");
+        brand.setBrandName("LINING");
+        brand.setCatagoryId(1173849633726734338L);
         brandService.save(brand);
     }
 }

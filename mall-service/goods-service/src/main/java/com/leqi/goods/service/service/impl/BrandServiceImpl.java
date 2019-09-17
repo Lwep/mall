@@ -6,15 +6,18 @@ import com.leqi.goods.service.service.BrandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
  * </p>
  *
- * @author 侯建军
+ * @author lwep
  * @since 2019-09-11
  */
 @Service
 public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements BrandService {
+
 
 }

@@ -11,14 +11,14 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author 侯建军
+ * @author lwep
  * @since 2019-09-11
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("goods_catagory")
-public class Catagory extends BaseEntity {
+public class Category extends BaseEntity {
 
     private String catagoryName;
 
