@@ -20,7 +20,7 @@ const router = new Router({
       component: () => import('@/views/layout/Layout.vue'),
       children: [
         { path: 'order', name: 'roorderle', component: () => import('@/views/order/Order.vue'), },
-        { path: 'goods', name: 'goods', component: () => import('@/views/goods/Goods.vue'), },
+        { path: 'catagory', name: 'catagory', component: () => import('@/views/catagory/Catagory.vue'), },
         { path: 'admin', name: 'admin', component: () => import('@/views/admin/Admin.vue'), },
         { path: 'user', name: 'user', component: () => import('@/views/user/User.vue'), },
       ]

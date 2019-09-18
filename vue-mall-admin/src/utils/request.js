@@ -11,7 +11,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
   if (config.url.indexOf('/login') == -1) {
-    console.log(getToken())
+   // console.log(getToken())
     config.headers["admin_token"] = getToken();
   }
   return config
@@ -22,7 +22,7 @@ service.interceptors.request.use(config => {
 // respone拦截器
 service.interceptors.response.use(
   response => {
-    console.log("响应拦截");
+    //console.log("响应拦截");
     return response;
   }, error => {
     return Promise.reject(error)

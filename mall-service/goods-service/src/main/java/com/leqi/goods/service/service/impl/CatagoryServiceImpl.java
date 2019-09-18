@@ -28,19 +28,19 @@ public class CatagoryServiceImpl extends ServiceImpl<CatagoryMapper, Category> i
 
     @Override
     public List<CategoryVO> getList() {
-        List<CategoryVO> categoryVOS=new ArrayList<>();
+        List<CategoryVO> categoryVOS = new ArrayList<>();
 
         List<Category> categories = this.list();
-        log.info("1111"+JSON.toJSONString(categories));
+        log.info("1111" + JSON.toJSONString(categories));
 
         for (Category category : categories) {
-            if(category.getParentId()==0){
-                CategoryVO categoryVO=new CategoryVO();
+            if (category.getParentId() == 0) {
+                CategoryVO categoryVO = new CategoryVO();
                 categoryVO.setValue(category.getId().toString());
                 categoryVO.setLabel(category.getCatagoryName());
                 // 添加子数据
-                List<CategoryVO> listTemp=this.getSubCategory(category.getId(),categories);
-                if(listTemp.size()>0) {
+                List<CategoryVO> listTemp = this.getSubCategory(category.getId(), categories);
+                if (listTemp.size() > 0) {
                     categoryVO.setChildren(listTemp);
                 }
                 categoryVOS.add(categoryVO);
@@ -49,17 +49,17 @@ public class CatagoryServiceImpl extends ServiceImpl<CatagoryMapper, Category> i
         return categoryVOS;
     }
 
-    private   List<CategoryVO> getSubCategory(long id,List<Category> categories ){
-        List<CategoryVO> categoryVOList=new ArrayList<>();
-        for (Category categroy:categories) {
+    private List<CategoryVO> getSubCategory(long id, List<Category> categories) {
+        List<CategoryVO> categoryVOList = new ArrayList<>();
+        for (Category categroy : categories) {
             // 如果
-            if(id==categroy.getParentId()){
-                CategoryVO categoryVO=new CategoryVO();
+            if (id ==( categroy.getParentId())) {
+                CategoryVO categoryVO = new CategoryVO();
                 categoryVO.setValue(categroy.getId().toString());
                 categoryVO.setLabel(categroy.getCatagoryName());
                 categoryVOList.add(categoryVO);
-                List<CategoryVO> listTemp=getSubCategory(categroy.getId(),categories);
-                if(listTemp.size()>0) {
+                List<CategoryVO> listTemp = getSubCategory(categroy.getId(), categories);
+                if (listTemp.size() > 0) {
                     // 添加子数据
                     categoryVO.setChildren(listTemp);
                 }

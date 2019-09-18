@@ -45,7 +45,7 @@ export default {
      this.$router.push("/layout/order");
     },
     navGoods(){
-     this.$router.push("/layout/goods");
+     this.$router.push("/layout/catagory");
     },
   }
 };
