@@ -6,6 +6,7 @@ import com.leqi.common.core.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -19,17 +20,27 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-//    @GetMapping
-//    public List<Admin> getList(){
-//        return adminService.getList();
-//    }
+
+    /**
+     * 获取管理员列表
+     * @return
+     */
     @GetMapping
     public Result getList(){
         return Result.ok(adminService.getList());
     }
+
+
+    /**
+     * 添加管理员
+     * @param admin
+
+     * @return
+     */
     @PostMapping
-    public Result add(@RequestBody Admin admin,@RequestParam String token) {
-        if (token.equals("a745d6c75e354b6876afdaf26fffd81a")) {
+    public Result add(@RequestBody Admin admin, HttpServletRequest httpServletRequest) {
+        String token = "";
+        if(token.equals("a745d6c75e354b6876afdaf26fffd81a")) {
             if (adminService.add(admin)) {
                 return Result.ok("添加成功");
             }

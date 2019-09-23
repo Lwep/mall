@@ -23,6 +23,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.leqi</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<!--配置文件客户端-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

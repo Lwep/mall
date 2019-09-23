@@ -20,8 +20,14 @@ public class COSFileStorageTest extends GoodsServiceApplicationTests {
     private COSFileStorage cosFileStorage;
     @Test
     public  void test(){
-        COSClient cosClient = cosFileStorage.getCosClient();
-        cosFileStorage.fileUpload();
-        log.info(cosFileStorage.toString());
+        COSClient cosClient=cosFileStorage.getCosClient();
+//        cosFileStorage.fileUpload();
+        log.info(cosClient.toString());
+    }
+
+    @Test
+    public void getExt(){
+        String path  = "adaa.jpg";
+        log.info(path.substring(path.indexOf("."),path.length()));
     }
 }

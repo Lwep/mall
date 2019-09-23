@@ -23,14 +23,13 @@ public class GoodsServiceTest  extends GoodsServiceApplicationTests {
         Goods goods = new Goods();
         goods.setGoodsPrice("1333");
         goods.setGoodsStock("12345");
-        goods.setGoodsName("iphone");
-        goods.setCatagoryId(1173849483256131586L);
-        goods.setGoodsBrand(1173850218496634881L);
-        goods.setSecCatagoryId(1173852165513494530L);
+        goods.setGoodsName("河马");
+//        goods.setCatagoryId(1173849483256131586L);
+//        goods.setGoodsBrand(1173850218496634881L);
+//        goods.setSecCatagoryId(1173852165513494530L);
         goods.setGoodsImg("adad");
         goods.setGoodsStatus(1);
         goodsService.save(goods);
-
     }
 
 

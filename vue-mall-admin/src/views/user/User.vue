@@ -2,7 +2,7 @@
   <div>
     <div class="topBtn">
       <el-button>添加用户</el-button>
-      <el-button @click="toggleSelection()">取消选择</el-button>
+      <el-button @click="bathDelete()">全部删除</el-button>
     </div>
     <el-table
       ref="multipleTable"
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { getList } from "@/api/user.js";
+import { getList,bathDelete } from "@/api/user.js";
 export default {
   data() {
     return {
@@ -65,7 +65,11 @@ export default {
       });
     },
     handleSelectionChange(val) {
-      console.log(val);
+      this.ids = [];
+      val.forEach(element => {
+        this.ids.push(element.id); 
+      });
+      console.log("1-----" + this.ids);
       this.multipleSelection = val;
     },
     handleSizeChange(val) {
@@ -78,7 +82,14 @@ export default {
       console.log(`当前页: ${val}`);
       this.getList();
     },
-    toggleSelection() {}
+    bathDelete() {
+      bathDelete(this.ids).then(response=>{
+        if(response.data.code=="0000"){
+          this.getList();
+        }
+         alert(response.data.message)
+      })
+    }
   }
 };
 </script>

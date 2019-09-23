@@ -7,7 +7,19 @@ import request from "../utils/request"
 export function getList(params){
     return request({
         url:'/user-service/user',
-        methods:'get',
+        method:'get',
         params
+    });
+}
+
+/**
+ * 批量删除
+ * 
+ */
+export function bathDelete(ids){
+    return request({
+        url:'/user-service/user/batch',
+        method:'delete',
+        data:ids
     });
 }

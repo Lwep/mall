@@ -8,22 +8,12 @@
             <el-input placeholder="请输入账号" v-model="form.username" style="width:80%"></el-input>
           </el-form-item>
 
-          <el-form-item class="text">
-            <el-input
-              placeholder="请输入密码"
-              v-model="form.password"
-              show-password
-              style="width:80%"
-            ></el-input>
+          <el-form-item class="text" prop="password">
+            <el-input placeholder="请输入密码" v-model="form.password" show-password style="width:80%"></el-input>
           </el-form-item>
 
           <el-form-item class="text">
-            <el-input
-              placeholder="验证码"
-              v-model="form.authcode"
-              show-password
-              style="width:80%"
-            ></el-input>
+            <el-input placeholder="验证码" v-model="form.authcode" show-password style="width:80%"></el-input>
           </el-form-item>
 
           <el-button type="primary" style="width:80%" @click="login('loginForm')">登录</el-button>
@@ -37,35 +27,47 @@
 // import axios from 'axios'
 
 import { login } from "../api/login";
-
+//import {setToken} from "../utils/store"
 export default {
   data() {
     return {
       form: { username: "", password: "" },
-       // 表单验证
+      // 表单验证
       loginRules: {
         username: [
           { required: true, message: "请输入用户名称", trigger: "blur" }
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" }
         ]
       }
     };
-   
   },
   created() {
     this.getList();
   },
   methods: {
-    login() {
-      login(this.form).then(response => {
+    login(loginForm) { 
+     console.log("2+"+this.$refs[loginForm]);
+      this.$refs[loginForm].validate(valid=>{
+        if(valid){
+        login(this.form).then(response => {
         if (response.data.code == "0000") {
           //令牌储存
-          window.token = response.data.data;
+           window.token=response.data.data;
+          // setToken(response.data.data);
           this.$router.push("/layout");
+          console.log("111"+response.data.data);
         } else {
           alert(response.data.message);
         }
       });
+    }else{
+      console.log("error submit");
+    }
+      });
     },
+ 
     getList() {}
   }
 };
@@ -92,5 +94,8 @@ export default {
 .el-button--primary {
   background-color: #4fc3f7;
   border-color: #4fc3f7;
+}
+.el-form-item__error {
+  left: 10%;
 }
 </style>

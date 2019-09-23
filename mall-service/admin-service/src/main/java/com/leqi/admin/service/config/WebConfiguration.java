@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @dareTime 2019/9/9 16:05
  */
 @Configuration
-public class WebConfigurer implements WebMvcConfigurer {
+public class WebConfiguration implements WebMvcConfigurer {
     @Autowired
     private AuthInterceptor authInterceptor;
     @Override
