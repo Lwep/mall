@@ -1,42 +1,39 @@
 <template>
   <div>
     <el-menu :default-openeds="['1']">
-      <el-submenu index="1">
+      <el-submenu :index="item.id" v-for="item in menuDate" :key="item.id">
         <template slot="title">
-          <i class="el-icon-s-data"></i>统 计
+          <i :class="item.icon"></i>
+          <span slot="title">{{item.title}}</span>
         </template>
-        <el-menu-item-group>
-          <el-menu-item index="1-1">用户统计</el-menu-item>
-          <el-menu-item index="1-2">订单统计</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-s-custom"></i>管 理
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="2-1" @click="navUser">用户管理</el-menu-item>
-          <el-menu-item index="2-2" @click="navGoods">商品管理</el-menu-item>
-          <el-menu-item index="2-3" @click="navOrder">订单管理</el-menu-item>
-          <el-menu-item index="2-4" @click="navAdmin">管理员管理</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="el-icon-s-tools"></i>设 置
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="3-1" @click="navUpload">图片设置</el-menu-item>
-          <el-menu-item index="3-2">卡券设置</el-menu-item>
+        <el-menu-item-group v-for="childItem in item.children" :key="childItem.id">
+          <el-menu-item :index="childItem.id">{{childItem.title}}</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
   </div>
-</template>
+</template>>
 <script>
 export default {
+  data() {
+    return {
+      menuDate: [
+        {
+          id: "1",
+          title: "统 计",
+          icon: "el-icon-s-data",
+          children: [
+            { id: "5", title: "用户统计" },
+            { id: "6", title: "订单统计" }
+          ]
+        },
+
+        { id: "2", title: "管 理", icon: "el-icon-s-custom" },
+        { id: "3", title: "设 置", icon: "el-icon-s-tools" }
+      ]
+    };
+  },
+
   props: {},
   methods: {
     navUser() {

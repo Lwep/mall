@@ -64,9 +64,9 @@ public class MysqlGenerator {
 //        com.mysql.cj.jdbc.Driver--com.mysql.jdbc.Driver
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
 //        // 用户名
-        dsc.setUsername("admin");
+        dsc.setUsername("root");
 //        // 密码
-        dsc.setPassword("Leleleqi123!");
+        dsc.setPassword("123456");
         mpg.setDataSource(dsc);
 
         // TODO 3.包配置
@@ -136,4 +136,8 @@ public class MysqlGenerator {
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
+
+
+
+
 }

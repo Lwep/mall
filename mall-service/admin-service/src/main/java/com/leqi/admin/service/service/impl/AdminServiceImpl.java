@@ -3,6 +3,7 @@ package com.leqi.admin.service.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.leqi.admin.service.entity.Admin;
 import com.leqi.admin.service.mapper.AdminMapper;
+import com.leqi.admin.service.request.LoginRequest;
 import com.leqi.admin.service.service.AdminService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,5 +34,17 @@ public class AdminServiceImpl implements AdminService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Admin login(LoginRequest loginRequest) {
+        QueryWrapper<Admin> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("username",loginRequest.getUsername());
+        queryWrapper.eq("password",loginRequest.getPassword());
+        Admin admin = adminMapper.selectOne(queryWrapper);
+        if(null!=admin){
+            return admin;
+        }
+        return null;
     }
 }

@@ -12,6 +12,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.leqi.common.utils.LongJsonDeserializer;
 import com.leqi.common.utils.LongJsonSerializer;
 import lombok.Data;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -19,7 +21,7 @@ import java.time.LocalDateTime;
  * @dareTime 2019/8/31 9:37
  */
 @Data
-public class BaseEntity {
+public class BaseEntity implements Serializable {
     @TableId(value = "id", type = IdType.ID_WORKER)
     @JsonSerialize(using = LongJsonSerializer.class)
     @JsonDeserialize(using = LongJsonDeserializer.class)

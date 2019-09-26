@@ -3,7 +3,9 @@ package com.leqi.admin.service.controller;
 import com.leqi.admin.service.entity.Admin;
 import com.leqi.admin.service.service.AdminService;
 import com.leqi.common.core.Result;
+import com.leqi.common.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +21,8 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminService adminService;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * 获取管理员列表
@@ -47,5 +50,14 @@ public class AdminController {
             return Result.fail("添加失败");
         }
         return Result.fail("没有权限");
+    }
+
+    //获取菜单接口，根据不同角色来
+    @RequestMapping("test")
+    public String getAdmin(){
+        RedisUtils redisUtils = new RedisUtils();
+        redisUtils.setRedisTemplate(redisTemplate);
+        String username = redisUtils.get("current_user").toString();
+        return username;
     }
 }

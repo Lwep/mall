@@ -2,4 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.leqi.admin.service.mapper.RoleMapper">
 
+    <select id="getRolesByUsername" resultType="com.leqi.admin.service.vo.RoleVO">
+        SELECT
+            a.username,
+            r.id,
+            role_name AS roleName
+        FROM
+            mall_role AS r,
+            mall_admin_role AS ar,
+            mall_admin AS a
+        WHERE
+            r.id = ar.role_id
+            AND a.id = ar.admin_id
+            AND a.username = #{username};
+    </select>
 </mapper>

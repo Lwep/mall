@@ -2,7 +2,7 @@
   <div>
     <div class="topBtn">
       <el-button>添加用户</el-button>
-      <el-button @click="bathDelete()">全部删除</el-button>
+      <el-button @click="bathDelete()">删除选中</el-button>
     </div>
     <el-table
       ref="multipleTable"
