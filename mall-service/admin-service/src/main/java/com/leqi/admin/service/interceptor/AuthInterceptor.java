@@ -28,7 +28,7 @@ import java.io.Serializable;
  * @dareTime 2019/9/9 15:46
  */
 @Slf4j
-@Configuration
+//@Configuration
 public class AuthInterceptor implements HandlerInterceptor {
 
     @Autowired

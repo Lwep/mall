@@ -12,6 +12,8 @@ public class Result<T> {
     private String message;
     private T data;
 
+    private Result() {
+    }
 
     /**
      * 构造函数
@@ -31,15 +33,19 @@ public class Result<T> {
         return new Result("1111", message);
     }
 
+    public static Result fail(String code, String message) {
+        return new Result(code, message);
+    }
+
     public static Result ok(String message) {
         return new Result("0000", message);
     }
 
-    public static Result ok(Object data) {
-        return new Result("0000", "message", data);
+    public static Result ok(String message, Object data) {
+        return new Result("0000", message, data);
     }
 
-    public static Result ok(String message, Object data) {
-        return new Result("0000", "message", data);
+    public static Result ok(Object data) {
+        return new Result("0000", "success", data);
     }
 }

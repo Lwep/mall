@@ -8,6 +8,7 @@ import com.leqi.common.core.Result;
 import com.leqi.common.utils.JwtUtils;
 import com.leqi.common.utils.Md5Utils;
 import com.leqi.common.utils.RedisUtils;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -24,6 +25,7 @@ import java.io.Serializable;
 @RestController
 @RequestMapping("/auth")
 @Slf4j
+@Api(tags = {"登录验证API"})
 public class AuthController {
     @Autowired
     private RedisTemplate<String, Serializable> redisTemplate;
@@ -42,6 +44,6 @@ public class AuthController {
             redisUtils.set(admin.getUsername(), admin, GlobalConstrant.EXPIRE_TIME);
             return Result.ok("登录成功", token);
         }
-        return Result.fail("登录失败");
+        return Result.fail("登录失败111");
     }
 }

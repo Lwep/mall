@@ -4,11 +4,14 @@ import com.leqi.admin.service.entity.Admin;
 import com.leqi.admin.service.service.AdminService;
 import com.leqi.common.core.Result;
 import com.leqi.common.utils.RedisUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -17,7 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin")
-
+@Api(tags = {"管理员API"})
 public class AdminController {
     @Autowired
     private AdminService adminService;
@@ -29,6 +32,8 @@ public class AdminController {
      * @return
      */
     @GetMapping
+
+    @ApiOperation(value = "获取管理员数据列表", notes = "获取管理员数据列表", httpMethod = "GET")
     public Result getList(){
         return Result.ok(adminService.getList());
     }
@@ -41,19 +46,19 @@ public class AdminController {
      * @return
      */
     @PostMapping
-    public Result add(@RequestBody Admin admin, HttpServletRequest httpServletRequest) {
-        String token = "";
-        if(token.equals("a745d6c75e354b6876afdaf26fffd81a")) {
-            if (adminService.add(admin)) {
-                return Result.ok("添加成功");
-            }
-            return Result.fail("添加失败");
+    @ApiOperation(value = "添加管理员", notes = "添加管理员", httpMethod = "POST")
+        public Result add(@RequestBody @Valid Admin admin) {
+
+        if (adminService.add(admin)) {
+            return Result.ok("添加成功");
         }
-        return Result.fail("没有权限");
+        return Result.fail("添加失败");
+
     }
 
     //获取菜单接口，根据不同角色来
-    @RequestMapping("test")
+    @GetMapping("test")
+    @ApiOperation(value = "根据角色获取菜单列表", notes = "根据角色获取菜单列表", httpMethod = "GET")
     public String getAdmin(){
         RedisUtils redisUtils = new RedisUtils();
         redisUtils.setRedisTemplate(redisTemplate);

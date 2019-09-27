@@ -27,7 +27,9 @@
 // import axios from 'axios'
 
 import { login } from "../api/login";
-//import {setToken} from "../utils/store"
+import { setToken } from "../utils/store";
+//import { getRouter } from "@/api/menu.js";
+
 export default {
   data() {
     return {
@@ -37,37 +39,31 @@ export default {
         username: [
           { required: true, message: "请输入用户名称", trigger: "blur" }
         ],
-        password: [
-          { required: true, message: "请输入密码", trigger: "blur" }
-        ]
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       }
     };
   },
-  created() {
-    this.getList();
-  },
+
   methods: {
-    login(loginForm) { 
-     console.log("2+"+this.$refs[loginForm]);
-      this.$refs[loginForm].validate(valid=>{
-        if(valid){
-        login(this.form).then(response => {
-        if (response.data.code == "0000") {
-          //令牌储存
-           window.token=response.data.data;
-          // setToken(response.data.data);
-          this.$router.push("/layout");
-          console.log("111"+response.data.data);
+    login(loginForm) {
+      console.log("2+" + this.$refs[loginForm]);
+      this.$refs[loginForm].validate(valid => {
+       if (valid) {
+          login(this.form).then(response => {
+            if (response.data.code == "0000") {
+              // 令牌存储
+              setToken(response.data.data);
+              this.$router.push("/layout");
+            } else {
+              alert(response.data.message);
+            }
+          });
         } else {
-          alert(response.data.message);
+          console.log("error submit!!");
         }
       });
-    }else{
-      console.log("error submit");
-    }
-      });
     },
- 
+
     getList() {}
   }
 };

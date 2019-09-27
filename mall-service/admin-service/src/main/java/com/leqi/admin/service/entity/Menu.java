@@ -26,6 +26,11 @@ public class Menu extends BaseEntity {
     private String name;
 
     /**
+     * 图标
+     */
+    private String icon;
+
+    /**
      * 路径
 
      */

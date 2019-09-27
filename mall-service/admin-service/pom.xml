@@ -8,10 +8,10 @@
 		<version>1.0.0</version>
 	</parent>
 	<groupId>com.leqi</groupId>
-	<artifactId>user-service</artifactId>
+	<artifactId>admin-service</artifactId>
 	<version>1.0.0</version>
-	<name>user-service</name>
-	<description>用户服务模块</description>
+	<name>admin-service</name>
+	<description>管理员服务模块</description>
 
 	<properties>
 		<java.version>1.8</java.version>

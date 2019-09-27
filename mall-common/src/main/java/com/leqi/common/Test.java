@@ -16,7 +16,7 @@ public class Test {
     public static void main(String args[]) {
         int array[] = {1, 1, 2, 3, 3, 3, 4, 5, 5, 6, 6, 8};
  
-        TreeSet<Integer> tree = new TreeSet<Integer>();
+        TreeSet<Integer> tree = new TreeSet<>();
 
         for(int i = 0;i<array.length;i++){
             tree.add(array[i]);
