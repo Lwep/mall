@@ -8,7 +8,7 @@ import com.leqi.goods.service.common.COSFileStorage;
 import com.leqi.goods.service.entity.Goods;
 import com.leqi.goods.service.service.GoodsService;
 import com.leqi.goods.service.vo.GoodsVO;
-import io.netty.util.internal.StringUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/goods/goods")
 @Slf4j
-@CrossOrigin
 public class GoodsController {
 
     @Autowired
@@ -63,19 +62,34 @@ public class GoodsController {
         return Result.ok(list);
     }
 
+    /**
+     *  上传图片
+     * @param file
+     * @return
+     */
     @PostMapping("upload")
     public Result upload(MultipartFile file){
-        String filename = file.getOriginalFilename();
-        log.info("上传图片本地地址"+filename);
-        String extName = filename.substring(filename.indexOf("."));
-
+//        String filename = file.getOriginalFilename();
+//        log.info("上传图片本地地址"+filename);
+//        String extName = filename.substring(filename.indexOf("."));
+//
+//        try {
+//            cosFileStorage.fileUpload(file.getInputStream(), StringUtils.getFileExt(filename));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return Result.ok("上传成功");
+        String filename=file.getOriginalFilename();
+        log.info(filename);
         try {
-            cosFileStorage.fileUpload(file.getInputStream(), StringUtils.getFileExt(filename));
+            String path=cosFileStorage.fileUpload(file.getInputStream(), StringUtils.getFileExt(filename));
+            if(org.apache.commons.lang.StringUtils.isNotEmpty(path)){
+                return Result.ok("上传成功",path);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Result.ok("上传成功");
-
+        return Result.fail("上传失败");
     }
 
 }

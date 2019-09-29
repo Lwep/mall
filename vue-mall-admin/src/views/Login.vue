@@ -16,7 +16,7 @@
             <el-input placeholder="验证码" v-model="form.authcode" show-password style="width:80%"></el-input>
           </el-form-item>
 
-          <el-button type="primary" style="width:80%" @click="login('loginForm')">登录</el-button>
+          <el-button type="primary" style="width:80%" @click="login('loginForm')" >登录</el-button>
         </el-col>
       </el-row>
     </el-form>
@@ -45,8 +45,10 @@ export default {
   },
 
   methods: {
+
+
     login(loginForm) {
-      console.log("2+" + this.$refs[loginForm]);
+      //console.log("2+" + this.$refs[loginForm]);
       this.$refs[loginForm].validate(valid => {
        if (valid) {
           login(this.form).then(response => {
@@ -67,6 +69,7 @@ export default {
     getList() {}
   }
 };
+
 </script>
 
 

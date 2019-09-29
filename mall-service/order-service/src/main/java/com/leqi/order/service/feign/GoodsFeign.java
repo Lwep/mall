@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Component
 @FeignClient(value = "GOODS-SERVICE" ,path = "/goods/goods")
 public interface GoodsFeign {
+
     @GetMapping("/{id}")
     GoodsVO getGoods(@PathVariable("id") Long id);
 }

@@ -23,6 +23,7 @@ import reactor.core.publisher.Mono;
  * @dareTime 2019/9/16 15:51
  */
 public class CorsConfig {
+
     private static final String MAX_AGE = "18000L";
 
     @Bean

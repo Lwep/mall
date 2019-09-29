@@ -1,5 +1,6 @@
 package com.leqi.admin.service.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.leqi.admin.service.entity.Admin;
 import com.leqi.admin.service.request.LoginRequest;
 import com.leqi.admin.service.vo.MenuVO;
@@ -11,7 +12,7 @@ import java.util.List;
  * @author lwep
  * @dareTime 2019/9/4 15:45
  */
-public interface AdminService {
+public interface AdminService  extends IService<Admin> {
     List<Admin> getList();
 
     boolean add(Admin admin);

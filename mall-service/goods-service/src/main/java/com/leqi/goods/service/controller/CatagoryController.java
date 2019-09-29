@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/goods/catagory")
+
 public class CatagoryController {
 
     @Autowired

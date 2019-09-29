@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="topBtn">
-      <el-button>添加用户</el-button>
+      <el-button @click="dialogFormVisible = true">添加用户</el-button>
       <el-button @click="bathDelete()">删除选中</el-button>
     </div>
     <el-table
@@ -23,6 +23,27 @@
       </el-table-column>
     </el-table>
 
+    <el-dialog title="添加用户" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="登录名" :label-width="formLabelWidth">
+          <el-input v-model="form.username" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" :label-width="formLabelWidth">
+          <el-input v-model="form.password" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" :label-width="formLabelWidth">
+          <el-input v-model="form.password" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="联系方式" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="addUser">确 定</el-button>
+      </div>
+    </el-dialog>
+
     <div class="block">
       <!-- <span class="demonstration">完整功能</span> -->
       <el-pagination
@@ -39,10 +60,20 @@
 </template>
 
 <script>
-import { getList,bathDelete } from "@/api/user.js";
+import { getList, bathDelete, addUser } from "@/api/user.js";
 export default {
   data() {
     return {
+      dialogFormVisible: false,
+      form: {
+        username: "",
+        password: "",
+        repassword: "",
+        phone: "",
+        delivery: false
+      },
+      formLabelWidth: "120px",
+
       data: [],
       total: 0,
       current: 1,
@@ -67,7 +98,7 @@ export default {
     handleSelectionChange(val) {
       this.ids = [];
       val.forEach(element => {
-        this.ids.push(element.id); 
+        this.ids.push(element.id);
       });
       console.log("1-----" + this.ids);
       this.multipleSelection = val;
@@ -83,12 +114,22 @@ export default {
       this.getList();
     },
     bathDelete() {
-      bathDelete(this.ids).then(response=>{
-        if(response.data.code=="0000"){
+      bathDelete(this.ids).then(response => {
+        if (response.data.code == "0000") {
           this.getList();
         }
-         alert(response.data.message)
-      })
+        alert(response.data.message);
+      });
+    },
+
+    addUser() {
+      addUser(this.form).then(response => {
+        if (response.data.code == "0000") {
+          this.getList();
+        }
+        alert(response.data.message);
+        this.dialogFormVisible = false;
+      });
     }
   }
 };
@@ -97,5 +138,9 @@ export default {
 .topBtn {
   margin: 10px;
   text-align: left;
+}
+
+.el-form-item__label {
+  font-size: 14px;
 }
 </style>

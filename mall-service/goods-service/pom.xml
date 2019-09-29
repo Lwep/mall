@@ -24,6 +24,7 @@
 			<artifactId>cos_api</artifactId>
 			<version>5.6.7</version>
 		</dependency>
+		<!--本地依赖-->
 		<dependency>
 			<groupId>com.leqi</groupId>
 			<artifactId>common</artifactId>

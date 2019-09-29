@@ -6,11 +6,12 @@ import request from "../utils/request"
  */
 export function getList(params){
     return request({
-        url:'/user-service/user',
+        url:'/admin-service/admin',
         method:'get',
         params
     });
 }
+
 
 /**
  * 批量删除
@@ -18,22 +19,19 @@ export function getList(params){
  */
 export function bathDelete(ids){
     return request({
-        url:'/user-service/user/batch',
+        url:'/admin-service/admin/batch',
         method:'delete',
         data:ids
     });
 }
 
-
-
-
 /**
- * 增加用户
+ * 添加管理员
  */
-export function addUser(user){
+export function addAdmin(admin){
     return request({
-        url:'/user-service/user/',
+        url:'/admin-service/admin/',
         method:'post',
-        data:user
+        data:admin
     });
 }

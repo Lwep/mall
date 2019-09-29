@@ -41,7 +41,6 @@ public class UserController {
      */
     @GetMapping
     @ApiOperation(value = "获取用户并分页显示",notes = "获取对象分页显示")
-
     public Result getPageList(UserRequest userRquest) {
         Page page = new Page<>(userRquest.getCurrent(), userRquest.getSize());
         IPage<User> iPage = userService.page(page);
@@ -94,7 +93,6 @@ public class UserController {
 
     @DeleteMapping("{id}")
     @ApiOperation(value = "删除用户",notes = "根据id删除用户，返回结果")
-
     public Result delete(@PathVariable("id") String id) {
         if (userService.removeById(id)) {
             return Result.ok("删除成功");
@@ -106,7 +104,7 @@ public class UserController {
     @DeleteMapping("batch")
     @ApiOperation(value = "批量删除用户",notes = "根据多个id删除用户，返回结果")
     public Result batch(@RequestBody List<String> ids) {
-        log.info(JSON.toJSONString(ids));
+        //log.info(JSON.toJSONString(ids));
         if (userService.removeByIds(ids)) {
             return Result.ok("删除成功");
         }

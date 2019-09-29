@@ -21,8 +21,9 @@ public class Admin extends BaseEntity {
 
     @NotNull(message = "用户名不能为空")
     @ApiModelProperty(value = "管理员名称",name="usernmae",dataType ="String" )
-
     private String username;
+
+    private String roleId;
 
     private String password;
     private String realname;

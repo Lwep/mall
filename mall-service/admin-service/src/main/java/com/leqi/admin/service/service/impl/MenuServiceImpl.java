@@ -43,16 +43,17 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             // 2. 通过权限等级获取菜单
             List<Menu> lists = menuMapper.getMenuByRoleId(roleVO.getId());
             log.info(JSON.toJSONString("3--"+lists));
+
             for (Menu menu:lists) {
                 // 目录为空
-                if(StringUtils.isNotEmpty(menu.getPath())) {
+
                     RouterVO routerVO = new RouterVO();
                     routerVO.setName(menu.getName());
                     routerVO.setComponent(menu.getComponent());
                     routerVO.setPath(menu.getPath());
                     // 添加一级菜单数据
                     routerVOList.add(routerVO);
-                }
+
             }
         }
         return routerVOList;

@@ -9,6 +9,7 @@ import com.qcloud.cos.model.PutObjectRequest;
 import com.qcloud.cos.model.PutObjectResult;
 import com.qcloud.cos.region.Region;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.File;
 import java.io.InputStream;
@@ -21,6 +22,7 @@ import java.util.UUID;
  * @dareTime 2019/9/6 15:28
  */
 @Component
+
 public class COSFileStorage {
     // 1 初始化用户身份信息(secretId,secretKey)
     private static String secretId = "AKIDSufEcZ2UDlGP4eEXhfZhhYGoBNYYRJPl";
@@ -28,7 +30,10 @@ public class COSFileStorage {
     private static String bucketName = "lwep-1300175355";
     private static String regionName = "ap-beijing";
 
-
+    /**
+     * 连接cos服务
+     * @return
+     */
     public COSClient getCosClient(){
         COSCredentials cred = new BasicCOSCredentials(secretId,secretKey);
         // 2 设置 bucket 的区域, COS 地域的简称请参照
@@ -79,6 +84,10 @@ public class COSFileStorage {
         String imagePath = "https://" + bucketName + ".cos." + regionName + ".myqcloud.com/" + key;
         return imagePath;
     }
+
+
+
+
 
 
 }
