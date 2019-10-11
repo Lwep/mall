@@ -30,10 +30,6 @@ public class Goods extends BaseEntity {
 
     private Long catagoryId;
 
-    private Long secCatagoryId;
-
-    private Long goodsBrand;
-
     private Integer goodsStatus;
 
 

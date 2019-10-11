@@ -1,9 +1,7 @@
 package com.leqi.common;
 
 import java.lang.reflect.Array;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author lwep
@@ -14,15 +12,47 @@ public class Test {
     //static { x+=5;}
 
     public static void main(String args[]) {
-        int array[] = {1, 1, 2, 3, 3, 3, 4, 5, 5, 6, 6, 8};
- 
-        TreeSet<Integer> tree = new TreeSet<>();
-
-        for(int i = 0;i<array.length;i++){
-            tree.add(array[i]);
+//        boolean bool = true;
+//        System.out.println(bool);
+//        if(bool = false){
+//            System.out.println("a"+bool);
+//        }
+//        else if(bool)
+//        {
+//
+//            System.out.println("b"+bool);
+//        }
+//        else if(!bool){
+//            System.out.println("c"+bool);
+//        }
+//        else
+//        {
+//            System.out.println("d"+bool);
+//        }
+//        System.out.println(Math.round(-11.5));
+        int array[] = {3, 1, 2, 3, 3, 3, 4, 1, 5, 2, 6, 8};
+        String a = "AA123ABBDFD12352123AC";
+        Set set = new LinkedHashSet<>();
+        char[] chars = a.toCharArray();
+        for(int i = 0 ; i < a.length() ; i ++){
+            set.add(chars[i]);
         }
-             System.out.println(tree);
-    }
+             System.out.println(set.toString());
+//        float f = 1.3;
+//        int a = 12*31;
+//        int b = 540;
+//        int i =0;
+//        int x = a;
+//        while(a>0){
+//            a = a-31+15;
+//            x = x+15;
+//            b -= 15;
+//            i++;
+//            System.out.println(i+"+++"+a+" +++"+b+"aaaaaaa"+x);
 
+
+
+
+    }
 
 }

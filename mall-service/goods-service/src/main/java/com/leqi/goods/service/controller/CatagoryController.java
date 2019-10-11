@@ -25,6 +25,11 @@ public class CatagoryController {
     @Autowired
     private CatagoryService catagoryService;
 
+
+    /**
+     * 获取级联菜单关系
+     * @return
+     */
     @GetMapping
     public Result getList(){
         return Result.ok(catagoryService.getList());

@@ -20,10 +20,9 @@ export default {
 
   methods: {
     handleChange(value) {
-      console.log(value);
+      console.log("111+"+value);
     },
     getList() {
-      console.log("--");
       getListCatagory().then(response =>  {
         this.options = response.data.data;
       });

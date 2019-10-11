@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -49,6 +50,20 @@ public class GoodsController {
         return goodsVO;
     }
 
+    @PostMapping
+    public Result addGoods(@RequestBody @Valid Goods goods){
+    if(goodsService.add(goods)){
+        return Result.ok("添加成功");
+    }
+    return Result.fail("添加失败");
+    }
+
+
+
+
+
+
+
     /**
      * 批量查询商品信息
      * @param ids
@@ -69,16 +84,7 @@ public class GoodsController {
      */
     @PostMapping("upload")
     public Result upload(MultipartFile file){
-//        String filename = file.getOriginalFilename();
-//        log.info("上传图片本地地址"+filename);
-//        String extName = filename.substring(filename.indexOf("."));
-//
-//        try {
-//            cosFileStorage.fileUpload(file.getInputStream(), StringUtils.getFileExt(filename));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return Result.ok("上传成功");
+
         String filename=file.getOriginalFilename();
         log.info(filename);
         try {

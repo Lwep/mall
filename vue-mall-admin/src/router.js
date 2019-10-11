@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {getToken} from '@/utils/store.js'
+import { getToken } from '@/utils/store.js'
 import { getRouter } from "@/api/menu.js";
 import dynamicRouter from "@/router/dynamicRouter.js";
 
@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
       } else {
         next()
       }
-    }else{
+    } else {
       next("/");
     }
   } else {
