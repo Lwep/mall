@@ -7,6 +7,7 @@
 		<groupId>com.leqi</groupId>
 		<version>1.0.0</version>
 	</parent>
+
 	<groupId>com.leqi</groupId>
 	<artifactId>admin-service</artifactId>
 	<version>1.0.0</version>
@@ -24,6 +25,7 @@
 			<artifactId>common</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
