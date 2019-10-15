@@ -21,7 +21,7 @@
     <groupId>com.leqi</groupId>
     <artifactId>mall</artifactId>
     <version>1.0.0</version>
-    <name>leqi</name>
+    <name>mall</name>
     <description>后台管理系统</description>
 
     <properties>
@@ -109,11 +109,7 @@
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatisplus.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-dts</artifactId>
-                <version>${mybatisplus.version}</version>
-            </dependency>
+
 
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -149,18 +145,16 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>snapshot</id>
-            <name>mp-snapshot</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
-
-
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>snapshot</id>-->
+            <!--<name>mp-snapshot</name>-->
+            <!--<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
 </project>
