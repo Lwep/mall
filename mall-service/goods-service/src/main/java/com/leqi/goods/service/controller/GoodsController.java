@@ -35,28 +35,39 @@ public class GoodsController {
     private GoodsService goodsService;
     @Autowired
     private COSFileStorage cosFileStorage;
+//
+//    /**
+//     * 根据id获取单个商品信息
+//     * @param id
+//     * @return
+//     */
+//    @GetMapping("{id}")
+//    public GoodsVO getGoods(@PathVariable("id") Long id){
+//        Goods goods = goodsService.getById(id);
+//        GoodsVO goodsVO = new GoodsVO();
+//        goodsVO.setId(goods.getId());
+//        goodsVO.setGoodsName(goods.getGoodsName());
+//        return goodsVO;
+//    }
 
     /**
-     * 根据id获取单个商品信息
-     * @param id
+     * 根据分类id 查询对应的商品
+     * @param cid
      * @return
      */
-    @GetMapping("{id}")
-    public GoodsVO getGoods(@PathVariable("id") Long id){
-        Goods goods = goodsService.getById(id);
-        GoodsVO goodsVO = new GoodsVO();
-        goodsVO.setId(goods.getId());
-        goodsVO.setGoodsName(goods.getGoodsName());
-        return goodsVO;
+    @GetMapping("getGoods/{cid}")
+    public Result getAllGoods(@RequestParam("cid") Long cid){
+        List<Goods> list = goodsService.getGoodsForCatagory(cid);
+        return Result.ok(list);
     }
 
-    @PostMapping
-    public Result addGoods(@RequestBody @Valid Goods goods){
-    if(goodsService.add(goods)){
-        return Result.ok("添加成功");
-    }
-    return Result.fail("添加失败");
-    }
+//    @PostMapping
+//    public Result addGoods(@RequestBody @Valid Goods goods){
+//    if(goodsService.add(goods)){
+//        return Result.ok("添加成功");
+//    }
+//    return Result.fail("添加失败");
+//    }
 
     @GetMapping("list")
     public Result getAllGoods(){

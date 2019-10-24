@@ -15,6 +15,10 @@ import java.util.List;
  */
 public interface GoodsService extends IService<Goods> {
 
+
+
+
+    List<Goods> getGoodsForCatagory(Long cid);
     /**
      * 获取商品列表
      * @return

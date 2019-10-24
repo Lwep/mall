@@ -1,10 +1,13 @@
 package com.leqi.goods.service.service;
 
+import com.alibaba.fastjson.JSON;
 import com.leqi.goods.service.GoodsServiceApplicationTests;
 import com.leqi.goods.service.entity.Goods;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -30,6 +33,13 @@ public class GoodsServiceTest  extends GoodsServiceApplicationTests {
         goods.setGoodsImg("adad");
         goods.setGoodsStatus(1);
         goodsService.save(goods);
+    }
+
+    @Test
+    public void get(){
+        List<Goods> list =goodsService.getGoodsForCatagory(1173871120881872897L);
+        log.info(JSON.toJSONString(list));
+
     }
 
 

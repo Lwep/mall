@@ -8,7 +8,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -23,6 +25,12 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Resource
     private GoodsMapper goodsMapper;
 
+    @Override
+    public List<Goods> getGoodsForCatagory(Long cid) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("catagory_id",cid);
+        return goodsMapper.selectByMap(map);
+    }
 
     /**
      * 获取商品列表
