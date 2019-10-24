@@ -21,6 +21,9 @@
       <el-table-column label="更新时间">
         <template slot-scope="scope">{{scope.row.uptateTime}}</template>
       </el-table-column>
+      <el-table-column label="操作">
+        <el-button type="primary" size="mini" @click="update">修改</el-button>
+      </el-table-column>
     </el-table>
 
     <el-dialog title="添加用户" :visible.sync="dialogFormVisible">
@@ -94,6 +97,9 @@ export default {
         this.size = response.data.data.size;
         // console.log(response);
       });
+    },
+    update() {
+      
     },
     handleSelectionChange(val) {
       this.ids = [];

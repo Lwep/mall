@@ -4,8 +4,8 @@ import { getToken } from '@/utils/store.js'
 // 创建axios实例
 const service = axios.create({
 
-  baseURL: 'http://192.168.0.186', // api的base_url
-  timeout: 5000 // 请求超时时间
+  baseURL:"http://localhost:9000", // api的base_url
+  timeout: 8000 // 请求超时时间
 });
 
 // request拦截器

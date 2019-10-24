@@ -58,6 +58,11 @@ public class GoodsController {
     return Result.fail("添加失败");
     }
 
+    @GetMapping("list")
+    public Result getAllGoods(){
+        List<Goods> list = goodsService.getList();
+        return Result.ok(list);
+    }
 
 
 

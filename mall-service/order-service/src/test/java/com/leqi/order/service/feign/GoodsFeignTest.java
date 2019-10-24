@@ -22,8 +22,7 @@ public class GoodsFeignTest extends OrderServiceApplicationTests {
 
     @Test
     public void getGoods() {
-        GoodsVO goodsVO = goodsFeign.getGoods(1174238964387762178L);
+        GoodsVO goodsVO = goodsFeign.getGoods(1181753145986985985L);
         log.info(JSON.toJSONString(goodsVO));
-
     }
 }
