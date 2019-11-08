@@ -12,14 +12,18 @@
             <el-input placeholder="请输入密码" v-model="form.password" show-password style="width:80%"></el-input>
           </el-form-item>
 
-          <el-form-item class="text">
-            <el-input placeholder="验证码" v-model="form.authcode" show-password style="width:80%"></el-input>
-          </el-form-item>
 
           <el-button type="primary" style="width:80%" @click="login('loginForm')" >登录</el-button>
         </el-col>
       </el-row>
+    
+    
     </el-form>
+
+    
+
+
+    
   </div>
 </template> 
 <script>

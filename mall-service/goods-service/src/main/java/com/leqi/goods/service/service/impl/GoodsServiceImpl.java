@@ -5,6 +5,7 @@ import com.leqi.goods.service.entity.Goods;
 import com.leqi.goods.service.mapper.GoodsMapper;
 import com.leqi.goods.service.service.GoodsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -54,4 +55,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         }
         return false;
     }
+
+
+
 }

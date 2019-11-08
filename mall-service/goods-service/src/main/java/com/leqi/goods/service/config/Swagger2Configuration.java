@@ -1,4 +1,4 @@
-package com.leqi.admin.service.config;
+package com.leqi.goods.service.config;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import org.springframework.context.annotation.Bean;
@@ -32,13 +32,13 @@ public class Swagger2Configuration {
                 .groupName("默认接口")
                 .select()
                 // 包扫描
-                .apis(RequestHandlerSelectors.basePackage("com.leqi.admin.service.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.leqi.goods.service.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("管理员服务模块")
+                .title("商品服务模块")
                 .description("描述:MallSystem")
                 .termsOfServiceUrl("http://www.xxxx.com/")
                 .contact(new Contact("lwep","http://www.XXXXXX.com/","XXXXXXX@qq.com"))

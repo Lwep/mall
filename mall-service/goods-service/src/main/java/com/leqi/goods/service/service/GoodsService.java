@@ -2,6 +2,7 @@ package com.leqi.goods.service.service;
 
 import com.leqi.goods.service.entity.Goods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import io.swagger.models.auth.In;
 
 import java.util.List;
 
@@ -32,5 +33,8 @@ public interface GoodsService extends IService<Goods> {
      */
     boolean add(Goods goods);
 
+
+
+    // boolean updateGoods(String goodsId);
 
 }

@@ -3,6 +3,7 @@ package com.leqi.goods.service.mapper;
 import com.leqi.goods.service.entity.Goods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * <p>
@@ -14,5 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface GoodsMapper extends BaseMapper<Goods> {
+
+
 
 }

@@ -10,3 +10,10 @@ import request from "../utils/request"
          method:'get'
      });
  }
+
+ export function getListGoods(){
+    return request({
+        url:'/goods-service/goods/goods/list',
+        method:'get'
+    });
+ }

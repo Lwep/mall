@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.leqi.common.core.Result;
 import com.leqi.user.service.entity.User;
+import com.leqi.user.service.request.LoginRequest;
 import com.leqi.user.service.request.UserRequest;
 import com.leqi.user.service.service.UserService;
 import io.swagger.annotations.Api;
@@ -16,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -29,10 +31,34 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-@Api(value = "用户管理类")
+@Api(tags = {"用户API"})
 public class UserController {
+
     @Autowired
     private UserService userService;
+
+    /**
+     * 用户登录
+     */
+    @PostMapping("/login")
+    @ApiOperation(value = "用户登录",notes = "用户登录")
+    public Result userLogin(@RequestBody LoginRequest loginRequest){
+        User user = userService.userLogin(loginRequest);
+        if(user!=null){
+            return Result.ok("登录成功");
+        }
+        return Result.fail("登录失败");
+    }
+    @PostMapping("/register")
+    @ApiOperation(value = "用户注册",notes = "用户注册")
+    public Result userRegister(@RequestBody @Valid User user){
+        if(userService.userRegister(user)){
+            return Result.ok("添加成功");
+        }
+        return Result.fail("添加失败");
+
+    }
+
 
     /**
      * 获取用户数据，分页显示
